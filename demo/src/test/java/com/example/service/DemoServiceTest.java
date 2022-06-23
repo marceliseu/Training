@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.model.Saudacao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ class DemoServiceTest {
 		String expected = "Hello ZE!";
 
 		// test
-		String result = demoService.hello(param);
+		Saudacao result = demoService.hello(param);
 
 		// check
-		Assertions.assertEquals(expected, result);
+		Assertions.assertEquals(expected, result.getName());
 
 	}
 

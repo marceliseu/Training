@@ -1,5 +1,6 @@
 package com.example.control;
 
+import com.example.model.Saudacao;
 import com.example.service.DemoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -25,15 +26,17 @@ class DemoController2Test {
 		// fixture
 		String param = "ZE";
 		String expected = "Hello ZE!";
+		Saudacao saudacao = new Saudacao();
+		saudacao.setName(expected);
 
 		// Mock
-		when(demoServiceMock.hello(anyString())).thenReturn(expected);
+		when(demoServiceMock.hello(anyString())).thenReturn(saudacao);
 
 		// test
-		String result = demoController.hello(param);
+		Saudacao result = demoController.hello(param);
 
 		// check
-		Assertions.assertEquals(expected, result);
+		Assertions.assertEquals(expected, result.getName());
 
 		// verify
 		verify(demoServiceMock, times(1)).hello(anyString());

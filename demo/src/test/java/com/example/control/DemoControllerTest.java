@@ -1,5 +1,6 @@
 package com.example.control;
 
+import com.example.model.Saudacao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,10 @@ class DemoControllerTest {
 		String expected = "Hello ZE!";
 
 		// test
-		String result = demoController.hello(param);
+		Saudacao result = demoController.hello(param);
 
 		// check
-		Assertions.assertEquals(expected, result);
+		Assertions.assertEquals(expected, result.getName());
 
 	}
 
