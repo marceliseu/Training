@@ -3,12 +3,10 @@ package com.example.service;
 import com.example.model.Moto;
 import com.example.model.Motos;
 import com.example.model.Saudacao;
+import com.example.repository.MotoRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import repository.MotoRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
