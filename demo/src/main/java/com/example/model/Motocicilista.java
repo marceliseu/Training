@@ -1,7 +1,9 @@
 package com.example.model;
 
+import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,15 +13,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "Motos")
-public class Moto {
+@Document(collection = "Motociclistas")
+public class Motocicilista {
 
     @Id
     @EqualsAndHashCode.Include
-    private  String motoId;
+    private String motociclistaId;
 
-    private  String modelo;
+    private String name;
 
-    private  Integer motor;
+    private String lastname;
+
+    private Integer age;
+
+    private List<String> motos;
 
 }
+
+

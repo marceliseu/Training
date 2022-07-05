@@ -1,7 +1,7 @@
 package com.example.control;
 
 import com.example.model.Moto;
-import com.example.model.Motos;
+import com.example.model.Motocicilista;
 import com.example.model.Saudacao;
 import com.example.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +21,15 @@ public class DemoController {
     }
 
     @GetMapping("/hello2")
-    public Motos hello2(@RequestParam(value = "name", defaultValue = "World") String name) {
-        Motos result = demoService.hello2(name);
+    public Motocicilista hello2(@RequestParam(value = "name", defaultValue = "World") String name) {
+        Motocicilista result = demoService.hello2(name);
         return result;
     }
 
     @ResponseStatus(HttpStatus.CONFLICT)
     @GetMapping("/hello3/{name}")
-    public Motos hello3(@PathVariable("name") String name) throws Exception {
-        Motos result = demoService.hello3(name);
+    public Motocicilista hello3(@PathVariable("name") String name) throws Exception {
+        Motocicilista result = demoService.hello3(name);
         return result;
     }
     
@@ -41,7 +41,7 @@ public class DemoController {
         return result;
     }
     
-    @PostMapping("/mot2o")
+    @PostMapping("/moto2")
     public Moto atualizaMoto2(@RequestBody Moto motoRequest) throws Exception {
         
         Moto result = demoService.atualizaMoto2(motoRequest);

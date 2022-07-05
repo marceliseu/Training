@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.model.Moto;
-import com.example.model.Motos;
+import com.example.model.Motocicilista;
 import com.example.model.Saudacao;
 import com.example.repository.MotoRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +17,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Component
 public class DemoServiceImpl implements DemoService {
@@ -59,31 +60,31 @@ public class DemoServiceImpl implements DemoService {
         return saudacao;
     }
 
-    public Motos hello2(String param) {
+    public Motocicilista hello2(String param) {
         String name = "World";
         if (Objects.nonNull(param)) name = param;
-        Motos respostaMoto = new Motos();
-        respostaMoto.setName(name);
-        respostaMoto.setAge(51);
-        respostaMoto.setLastname("Eliseu");
-        Moto moto = new Moto();
-        moto.setModelo("yamaha");
-        moto.setMotor(900);
-        List<Moto> motoList = new ArrayList<>();
-        motoList.add(moto);
-        respostaMoto.setMotos(motoList);
+        Motocicilista motocicilista = Motocicilista.builder()
+                .name(name)
+                .age(51)
+                .lastname("Eliseu")
+                .build();
+
+        String motoId = UUID.randomUUID().toString();
+        List<String> motoList = new ArrayList<>();
+        motoList.add(motoId);
+        motocicilista.setMotos(motoList);
 
 //        List<Moto> motoList2 =motoList.stream().filter(s->s.getMotor().equals(900)).toList();
-        return respostaMoto;
+        return motocicilista;
     }
 
-    public Motos hello3(String name) throws Exception {
+    public Motocicilista hello3(String name) throws Exception {
 
 //        String name = nodeMoto.get("name").asText();
 //        boolean hasName = nodeMoto.has("name");
 //        if (hasName) System.out.println("TEM name");
 
-        Motos respostaMoto = objectMapper.treeToValue(nodeMoto, Motos.class);
+        Motocicilista respostaMoto = objectMapper.treeToValue(nodeMoto, Motocicilista.class);
         respostaMoto.setName(name);
         return respostaMoto;
     }
