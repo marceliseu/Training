@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: demo-api
+  data:
+    mongodb:
+      uri: mongodb://localhost:2707
+
+logging:
+  level:
+    root: INFO
+    com.example: INFO
+    org.springframework.data.mongodb.core.MongoTemplate: INFO
+    org.apache.http.impl.conn.PoolingHttpClientConnectionManager: INFO
+
+server:
+  # RFC-7239 forwarding headers
+  forward-headers-strategy: framework
+  servlet:
+    context-path: /
+  error:
+    include-exception: true
+    include-stacktrace: always
+    include-message: always
+    include-binding-errors: never
+  port: 8090
