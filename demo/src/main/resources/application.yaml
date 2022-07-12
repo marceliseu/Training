@@ -3,9 +3,9 @@ spring:
     active: development
   application:
     name: demo-api
-  data:
-    mongodb:
-      uri: mongodb://localhost:2707
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017
 
 logging:
   level:
